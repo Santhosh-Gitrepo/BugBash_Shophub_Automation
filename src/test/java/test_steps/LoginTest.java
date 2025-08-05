@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import org.junit.Assert;
 
-public class login_test {
+public class LoginTest {
     WebDriver driver;
     login login;
     test_logger logger = new test_logger();
@@ -37,20 +37,20 @@ public class login_test {
     public void clickLogin() {
         login.clickLogin();
     }
-
-    @Then("login should be successful")
-    public void loginSuccessful() throws IOException, InterruptedException{
+    @Then("login result {string}")
+    public void loginResult(String result) throws IOException, InterruptedException {
         String msg = login.getMessage();
-        Assert.assertEquals("Login successful!", msg);
-        logger.log("Successfully logged in");
-        driver.quit();
-    }
 
-    @Then("error message should be displayed")
-    public void loginFailed() throws IOException, InterruptedException {
-        String msg = login.getMessage();
-        Assert.assertEquals("Invalid email or password. Try: admin@shophub.com / admin123", msg);
-        logger.log("Login failed with invalid credentials");
+        if (result.equalsIgnoreCase("successful")) 
+        {
+            Assert.assertEquals("Login successful!", msg);
+            logger.log("Successfully logged in");
+        } 
+        else if (result.equalsIgnoreCase("failed")) 
+        {
+            Assert.assertEquals("Invalid email or password. Try: admin@shophub.com / admin123", msg);
+            logger.log("Login failed with invalid credentials");
+        }
     }
     @After
     public void browserquit() {

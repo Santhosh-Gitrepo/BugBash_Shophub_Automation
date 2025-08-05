@@ -4,7 +4,7 @@ Feature: Login Functionality for Multiple Users
     Given user is on the login page
     When user enters username "<username>" and password "<password>"
     And clicks the login button
-    Then <result>
+    Then login result "<result>"
 
     Examples:
       | username             | password   | result                            |

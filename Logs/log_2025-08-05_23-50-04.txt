@@ -1,0 +1,16 @@
+
+[2025-08-05 23:50:09] Launched the browser with specified url
+
+[2025-08-05 23:50:10] Entered Login Credentials: admin@shophub.com and admin123
+
+[2025-08-05 23:50:16] Launched the browser with specified url
+
+[2025-08-05 23:50:16] Entered Login Credentials: user@example.com and user123
+
+[2025-08-05 23:50:21] Launched the browser with specified url
+
+[2025-08-05 23:50:21] Entered Login Credentials: guest@demo.com and guest123
+
+[2025-08-05 23:50:26] Launched the browser with specified url
+
+[2025-08-05 23:50:26] Entered Login Credentials: user@invalid.com and wrongpass
