@@ -13,7 +13,6 @@ private static String logFileName;
 public test_logger() 
 {
 	create_log_dir();
-	// Only set logFileName once during construction
 	if (logFileName == null) 
 	{
 	    String timestamp = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss").format(new Date());
@@ -32,7 +31,7 @@ public void log(String s) throws IOException, InterruptedException
 {
 	FileWriter log_writer = new FileWriter(logFileName, true);
 	String logTimestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-	String log_print = "["+logTimestamp+"] "+s+"\n";
+	String log_print = "\n["+logTimestamp+"] "+s+"\n";
 	System.out.println(log_print);
 	log_writer.append(log_print);
 	log_writer.close();
