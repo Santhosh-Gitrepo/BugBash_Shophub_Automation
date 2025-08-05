@@ -1,29 +1,36 @@
 package test_steps;
 
 import io.cucumber.java.After;
+import utils.test_logger;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.login;
+
+import java.io.IOException;
+
 import org.junit.Assert;
 
 public class login_test {
     WebDriver driver;
     login login;
+    test_logger logger = new test_logger();
 
     @Given("user is on the login page")
-    public void openLoginPage() {
+    public void openLoginPage() throws IOException, InterruptedException {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get("https://bugbash.syook.com/");
+        logger.log("Launched the browser with specified url");
         login = new login(driver);
     }
 
     @When("user enters username {string} and password {string}")
-    public void enterCredentials(String username, String password) {
+    public void enterCredentials(String username, String password) throws IOException, InterruptedException {
         login.enterUsername(username);
         login.enterPassword(password);
+        logger.log("Entered Login Credentials: "+username+" and "+password);
     }
 
     @And("clicks the login button")
@@ -32,16 +39,18 @@ public class login_test {
     }
 
     @Then("login should be successful")
-    public void loginSuccessful(){
+    public void loginSuccessful() throws IOException, InterruptedException{
         String msg = login.getMessage();
         Assert.assertEquals("Login successful!", msg);
+        logger.log("Successfully logged in");
         driver.quit();
     }
 
     @Then("error message should be displayed")
-    public void loginFailed() {
+    public void loginFailed() throws IOException, InterruptedException {
         String msg = login.getMessage();
         Assert.assertEquals("Invalid email or password. Try: admin@shophub.com / admin123", msg);
+        logger.log("Login failed with invalid credentials");
     }
     @After
     public void browserquit() {

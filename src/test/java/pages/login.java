@@ -12,7 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class login {
     WebDriver driver;
 
-    // Locators (assuming IDs are used in the HTML form)
     @FindBy(id = "email")
     WebElement emailInput;
 
@@ -25,13 +24,11 @@ public class login {
     @FindBy(id = "notification")
     WebElement message;
 
-    // Constructor to initialize elements using PageFactory
     public login(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    // Actions
     public void enterUsername(String username) {
         emailInput.clear();
         emailInput.sendKeys(username);
