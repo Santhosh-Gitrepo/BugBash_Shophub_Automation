@@ -1,4 +1,4 @@
 pages\login.class
 utils\test_logger.class
-test_steps\login_test.class
-test_runner\RunnerTest.class
+test_runner\TestRunner.class
+test_steps\LoginTest.class
