@@ -12,9 +12,13 @@ BugBash_Automation/
 │       │   │   └── runner.java
 │       │   └── test_steps/         # Test Steps
 │       │       └── login_test.java
+│       │   └── utils/              # Utility package contains custom logger to generate runtime logs during test execution
+│       │       └── test_logger.java
 │       └── resources/
 │           └── features/
 │               └── Login.feature   # Gherkin file
+├── Logs/                           # Runtime logs stored during test execution
+│   └── log_yyyy-mm-dd_hh-mm-ss.txt
 ├── target/
 │   └── cucumber-reports.html       # Test Results Reports
 ├── pom.xml                         # Maven configuration to download dependencies and plugins
